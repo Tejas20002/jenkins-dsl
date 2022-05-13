@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue js</title>
+    <link rel="stylesheet" href="style.css">   
+
+    <!-- Bootstraps css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    
+</head>
+<body>
+    
+    <div id="app">
+        <h1 >{{message}}</h1>
+        
+    </div>
+    <div id="app2">
+        <span v-bind:title="load">
+            Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </span>
+    </div>
+    <div id="app-3">
+        <span v-show="seen">Now you not see me show<br></span> 
+        <span v-if="seen">Now you see me if</span> 
+        <span v-else>Now you not see me</span> 
+    </div>
+    <div id="app-4">
+        <ol>
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          </li>
+        </ol>
+    </div>
+    <div id="form">
+        <template>
+            <div>
+                <pre>
+                    {{ JSON.stringify(form,null,0)}}
+                </pre>
+            </div>
+        </template>
+        <form @submit.prevent="submits">
+            <input type="text" id="name" v-model.trim.lazy="form.name">
+            <input type="email" id="email" v-model.trim="form.email">
+            <input type="radio" id="radio" value="male" v-model="form.radio">male
+            <input type="radio" id="radio" value="female" v-model="form.radio">female
+            <input type="checkbox" id="checkbox" v-model="form.checkbox" value="football">football
+            <input type="checkbox" id="checkbox" v-model="form.checkbox" value="volleyball">volleyball
+            <input type="checkbox" id="checkbox" v-model="form.checkbox" value="hockey">hockey
+            <select name="select" @keyup.enter="submits" id="select" v-model="form.select">
+                <option value="">Select Town</option>
+                <option value="Bhuj">Bhuj</option>
+                <option value="Anjar">Anjar</option>
+                <option value="Mandiv">Mandiv</option>
+            </select>
+            <!-- <button>submit</button> -->
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</body>
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'   
+    }
+})
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    load: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+})
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
+  }
+})
+var form = new Vue({
+    el: '#form',
+    data() { 
+        return {
+            form: {
+                name: "",
+                email: "",
+                radio: "",
+                checkbox: [],
+                select: "",
+            }
+        }
+    },
+    methods: {
+        submits(event){
+            //event.preventDefault()
+            console.log('form value', this.form)
+        }
+    },
+})
+
+</script>
+
+</html>
