@@ -1,7 +1,7 @@
 job('demo') {
     scm{
         git('git://github.com/Tejas20002/jenkins-dsl.git'){
-            node -> node / gitConfigName('tjhirani')
+            node -> node / gitConfigName('Tejas20002')
             node / gitCongifEmail('tejashirani@gmail.com')
         }
     }
@@ -12,6 +12,6 @@ job('demo') {
         nodejs('nodejs')
     }
     steps {
-        shell('echo Hello World!')
+        shell('npm install')
     }
 }
