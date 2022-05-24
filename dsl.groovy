@@ -5,9 +5,6 @@ job('demo') {
             node / gitCongifEmail('tejashirani@gmail.com')
         }
     }
-    triggers{
-        scm('H/S * * * *')
-    }
     wrappers{
         nodejs('nodejs')
     }
