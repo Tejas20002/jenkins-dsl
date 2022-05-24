@@ -11,6 +11,6 @@ job('demo') {
         nodejs('nodejs')
     }
     steps {
-        shell('npm install')
+        shell('npm install && node index.js')
     }
 }
