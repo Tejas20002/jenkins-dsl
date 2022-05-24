@@ -1,4 +1,4 @@
-job('demo') {
+job('node-weather-app') {
     scm {
         git{
             remote {
