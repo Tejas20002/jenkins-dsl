@@ -1,6 +1,6 @@
 job('demo') {
     scm{
-        git('git://https://github.com/Tejas20002/jenkins-dsl.git'){
+        git('git://github.com/Tejas20002/jenkins-dsl.git'){
             node -> node / gitConfigName('tjhirani')
             node / gitCongifEmail('tejashirani@gmail.com')
         }
