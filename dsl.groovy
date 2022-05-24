@@ -2,9 +2,9 @@ job('demo') {
     scm {
         git{
             remote {
-                url("https://github.com/m-goos/jenkins-jobdsl-seedrepo-example.git")
+                url("https://github.com/Tejas20002/jenkins-dsl.git")
             }
-            branch("*/main")
+            branch("*/master")
         }
     }
     wrappers{
