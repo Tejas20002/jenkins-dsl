@@ -13,7 +13,7 @@ pipeline {
                  '''
             }
         }
-        stage("Install") {
+        stage("Npm Install") {
             steps {
                 sh '''
                   npm install                    
