@@ -13,7 +13,4 @@ job('nodeweatherapp') {
     steps {
         shell('npm install')
     }
-    step{
-        shell('npm --version')
-    }
 }
