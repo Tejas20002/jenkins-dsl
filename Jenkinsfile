@@ -17,6 +17,8 @@ pipeline {
             steps {
                 sh '''
                   ls -a
+                  cat Jenkinsfile
+                  cat index.js
                   npm install                    
                    '''
             }
