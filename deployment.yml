@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-deployment
+  labels:
+    app: weather
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: weather
+  template: 
+    metadata:
+      labels:
+        name: weather
+    spec:
+      containers:
+      - name: weather
+        image: tjhirani/nodejs:latest
+        ports:
+        - containerPort: 3000

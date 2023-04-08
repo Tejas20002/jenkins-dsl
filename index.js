@@ -12,7 +12,7 @@ app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
 
-app.get('/:places', async(req, rep) => {
+app.get('/app/:places', async(req, rep) => {
     //run code stuff
     const places = req.params.places;
     const api = await fetch(`http://api.weatherapi.com/v1/current.json?key=11703676ed6f4545b5a84959210812&q=${places}&aqi=no`, {
@@ -24,3 +24,11 @@ app.get('/:places', async(req, rep) => {
     //console.log(playstore);
     rep.json(weat);
 });
+
+app.get('/ready', function(req, res) {
+  res.send('{ "response": "Hello world" }')
+})
+
+app.get('/ping', function(req, res) {
+  res.send('{ "response": "pong" }')
+})

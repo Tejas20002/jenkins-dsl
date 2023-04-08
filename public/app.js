@@ -1,7 +1,7 @@
 console.log("app.js load");
 
 async function getname(places){
-    const response = await fetch(`/${places}`);
+    const response = await fetch(`/app/${places}`);
     const data = await response.json();
     // console.log(data.location.name);
     return data;
