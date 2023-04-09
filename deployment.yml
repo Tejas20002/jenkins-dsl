@@ -8,11 +8,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      name: weather
+      app: weather
   template: 
     metadata:
       labels:
-        name: weather
+        app: weather
     spec:
       containers:
       - name: weather
